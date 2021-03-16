@@ -1,8 +1,6 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ master, dev ]
   pull_request:
     branches: [ master, dev ]
 
@@ -17,5 +15,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           repository: fluktuid/you-asked-for
-          push: true
-          tags: ${{ GITHUB_HEAD_REF }}
+          push: false

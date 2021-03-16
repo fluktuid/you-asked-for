@@ -18,4 +18,4 @@ jobs:
         with:
           repository: fluktuid/you-asked-for
           push: true
-          tags: ${BRANCH_NAME}
+          tags: ${{ GITHUB_HEAD_REF }}

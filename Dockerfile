@@ -2,7 +2,7 @@
 ############################
 # STEP 1 build executable binary
 ############################
-FROM golang:1.15-alpine AS builder
+FROM golang:1.16-alpine AS builder
 ARG GO_FILES=.
 ARG GO_MAIN=main.go
 LABEL maintainer="Lukas Paluch <fluktuid@noreply.github.com>"

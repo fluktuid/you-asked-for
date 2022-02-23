@@ -12,5 +12,5 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "used path: %s", r.URL.Path[1:])
+	fmt.Fprintf(w, "used path: %s\n", r.URL.Path[0:])
 }

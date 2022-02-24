@@ -18,12 +18,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "used path: %s\n", r.URL.Path[0:])
 
 	hostname, err := os.Hostname()
-	if err != nil {
+	if err == nil {
 		fmt.Fprintf(w, "Hostname: %s\n", hostname)
 	}
 
 	ifaces, err := net.Interfaces()
-	if err != nil {
+	if err == nil {
 		for _, i := range ifaces {
 			addrs, _ := i.Addrs()
 			for _, addr := range addrs {

@@ -19,4 +19,21 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintf(w, "Hostname: %s\n", hostname)
 	}
+
+	ifaces, err := net.Interfaces()
+	// handle err
+	for _, i := range ifaces {
+		addrs, err := i.Addrs()
+		// handle err
+		for _, addr := range addrs {
+			var ip net.IP
+			switch v := addr.(type) {
+			case *net.IPNet:
+					ip = v.IP
+			case *net.IPAddr:
+					ip = v.IP
+			}
+			fmt.Fprintf(w, "IP(s): %s\n", hostname)
+		}
+	}
 }

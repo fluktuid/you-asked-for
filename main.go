@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -29,9 +31,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			var ip net.IP
 			switch v := addr.(type) {
 			case *net.IPNet:
-					ip = v.IP
+				ip = v.IP
 			case *net.IPAddr:
-					ip = v.IP
+				ip = v.IP
 			}
 			fmt.Fprintf(w, "IP(s): %s\n", hostname)
 		}
